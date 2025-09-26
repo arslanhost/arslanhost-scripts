@@ -162,9 +162,6 @@ cat > /opt/n8n/caddy/Caddyfile <<'CADDY'
 }
 
 ${BASE_DOMAIN} {
-  # İlk etapta staging CA; script ileride production'a alacak
-  acme_ca https://acme-staging-v02.api.letsencrypt.org/directory
-
   encode gzip zstd
   reverse_proxy n8n:5678
 }
