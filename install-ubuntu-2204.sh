@@ -37,14 +37,14 @@ echo ""
 ### ====== OTOMATİK DEĞERLER ======
 echo -e "${BOLD}${BLUE}🔧 SİSTEM BİLGİLERİ ALINIYOR...${NC}"
 SERVER_IP="$(hostname -I | awk '{print $1}')"
-RAND="$(date +%s | sha256sum | head -c 12)"
-SUBDOMAIN="n8n-${RAND}"
+RAND="n8n$(date +%s)"
+SUBDOMAIN="${RAND}"
 FQDN="${SUBDOMAIN}.${DOMAIN}"
 
-DB_USER="n8n_$(date +%s | sha256sum | head -c 6)"
+DB_USER="n8n_user"
 DB_NAME="n8n"
-DB_PASS="$(date +%s | sha256sum | head -c 24)"
-JWT_SECRET="$(date +%s | sha256sum | head -c 32)"
+DB_PASS="n8n_password_$(date +%s)"
+JWT_SECRET="jwt_secret_$(date +%s)"
 GENERIC_TIME_WAIT=5
 
 echo -e "${GREEN}✅ Sunucu IP:${NC} ${SERVER_IP}"
