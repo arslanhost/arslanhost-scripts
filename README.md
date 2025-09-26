@@ -7,13 +7,13 @@ Bu repository, ArslanHOST müşterileri için otomatik sunucu kurulum scriptleri
 ### Ubuntu 22.04 için n8n Kurulumu
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/KULLANICI_ADI/arslanhost-scripts/main/install.sh | bash -c 'CF_API_TOKEN="YOUR_TOKEN" CF_ZONE_ID="YOUR_ZONE_ID" DOMAIN="arslanhost.com" ADMIN_EMAIL="admin@arslanhost.com" bash'
+curl -fsSL https://raw.githubusercontent.com/arslanhost/arslanhost-scripts/main/install-ubuntu-2204.sh | bash -c 'CF_API_TOKEN="YOUR_TOKEN" CF_ZONE_ID="YOUR_ZONE_ID" DOMAIN="arslanhost.com" ADMIN_EMAIL="admin@arslanhost.com" bash'
 ```
 
 ### CentOS 8 için n8n Kurulumu
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/KULLANICI_ADI/arslanhost-scripts/main/install-centos.sh | bash -c 'CF_API_TOKEN="YOUR_TOKEN" CF_ZONE_ID="YOUR_ZONE_ID" DOMAIN="arslanhost.com" ADMIN_EMAIL="admin@arslanhost.com" bash'
+curl -fsSL https://raw.githubusercontent.com/arslanhost/arslanhost-scripts/main/install-centos.sh | bash -c 'CF_API_TOKEN="YOUR_TOKEN" CF_ZONE_ID="YOUR_ZONE_ID" DOMAIN="arslanhost.com" ADMIN_EMAIL="admin@arslanhost.com" bash'
 ```
 
 ## 📋 Gereksinimler
@@ -48,7 +48,7 @@ curl -fsSL https://raw.githubusercontent.com/KULLANICI_ADI/arslanhost-scripts/ma
 ### 3. Kurulum Komutu
 ```bash
 # Ubuntu için
-curl -fsSL https://raw.githubusercontent.com/KULLANICI_ADI/arslanhost-scripts/main/install.sh | bash -c 'CF_API_TOKEN="i9lP2M08ntTBfC0bjIYvGQdlngKPfnysr2Wji5zG" CF_ZONE_ID="0da2c757ba323937e90946c808ce8329" DOMAIN="arslanhost.com" ADMIN_EMAIL="admin@arslanhost.com" bash'
+curl -fsSL https://raw.githubusercontent.com/arslanhost/arslanhost-scripts/main/install-ubuntu-2204.sh | bash -c 'CF_API_TOKEN="i9lP2M08ntTBfC0bjIYvGQdlngKPfnysr2Wji5zG" CF_ZONE_ID="0da2c757ba323937e90946c808ce8329" DOMAIN="arslanhost.com" ADMIN_EMAIL="admin@arslanhost.com" bash'
 ```
 
 ## 🎯 Kurulum Sonrası
