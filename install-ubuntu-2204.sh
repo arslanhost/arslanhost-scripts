@@ -97,6 +97,9 @@ WEBHOOK_URL=https://${FQDN}/
 N8N_ENCRYPTION_KEY=${JWT_SECRET}
 N8N_DIAGNOSTICS_ENABLED=false
 N8N_PERSONALIZATION_ENABLED=false
+
+# --- Caddy env ---
+ADMIN_EMAIL=${ADMIN_EMAIL}
 EOF
 
 # Caddy için domain env (compose içine enjekte edeceğiz)
