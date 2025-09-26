@@ -266,3 +266,34 @@ echo -e "${BOLD}${PURPLE}📞 DESTEK:${NC}"
 echo -e "${WHITE}Web: https://arslanhost.com${NC}"
 echo -e "${WHITE}E-posta: support@arslanhost.com${NC}"
 echo ""
+
+# Otomatik Caddyfile düzeltme ve Docker restart
+echo -e "${BOLD}${BLUE}🔧 CADDYFILE OTOMATİK DÜZELTİLİYOR...${NC}"
+cd /opt/n8n
+
+# Mevcut Caddyfile'ı yedekleyin
+cp caddy/Caddyfile caddy/Caddyfile.backup
+
+# Yeni Caddyfile oluşturun (acme_ca olmadan)
+cat > caddy/Caddyfile << 'EOF'
+{
+  email admin@arslanhost.com
+}
+EOF
+
+# Dinamik domain'i ekle
+echo "${FQDN} {" >> caddy/Caddyfile
+echo "  reverse_proxy n8n:5678" >> caddy/Caddyfile
+echo "}" >> caddy/Caddyfile
+
+echo -e "${GREEN}✅ Caddyfile düzeltildi${NC}"
+
+echo -e "${BOLD}${BLUE}🔄 DOCKER SERVİSLERİ YENİDEN BAŞLATILIYOR...${NC}"
+docker-compose down
+docker-compose up -d
+
+echo -e "${GREEN}✅ Otomatik düzeltme tamamlandı!${NC}"
+echo -e "${BOLD}${CYAN}🌐 n8n paneli: https://${FQDN}${NC}"
+echo ""
+echo -e "${BOLD}${GREEN}🎯 Kurulum tamamen tamamlandı! Artık n8n panelinize erişebilirsiniz.${NC}"
+echo ""
