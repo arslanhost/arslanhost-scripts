@@ -12,16 +12,6 @@ WHITE='\033[1;37m'
 BOLD='\033[1m'
 NC='\033[0m' # No Color
 
-# ASCII Art Logo - ArslanHOST
-echo -e "${CYAN}"
-cat << "EOF"
-    ___                    _            _   _   _   _   _____   _____ 
-   / _ \   _ __     __ _   | |_    ___  | | | | | | | | |_   _| |_   _|
-  / /_\ \ | '_ \   / _` |  | __|  / _ \ | |_| | | | | |   | |     | |  
- /  _  \ \| | | | | (_| |  | |_  |  __/ |  _  | | |_| |   | |     | |  
-/_/ \_\_\_|_| |_|  \__,_|   \__|  \___| |_| |_|  \___/    |_|     |_|  
-EOF
-echo -e "${NC}"
 
 echo -e "${BOLD}${WHITE}═══════════════════════════════════════════════════════════════════════════════${NC}"
 echo -e "${BOLD}${CYAN}                    ArslanHOST n8n Otomatik Kurulum Scripti${NC}"
@@ -65,7 +55,7 @@ echo -e "${GREEN}✅ Gerekli paketler yüklendi${NC}"
 # Docker & compose plugin
 if ! command -v docker >/dev/null 2>&1; then
   echo -e "${YELLOW}🐳 Docker yükleniyor...${NC}"
-  apt-get install -y docker.io docker-compose-plugin >/dev/null
+  apt-get install -y docker.io docker-compose >/dev/null
   systemctl enable --now docker
   echo -e "${GREEN}✅ Docker yüklendi ve başlatıldı${NC}"
 else
@@ -221,9 +211,9 @@ done
 ### ====== Docker start (staging sertifika) ======
 echo -e "${BOLD}${BLUE}🐳 DOCKER SERVİSLERİ BAŞLATILIYOR...${NC}"
 echo -e "${YELLOW}Docker compose up (staging CA ile)...${NC}"
-docker compose pull >/dev/null || true
-docker compose down >/dev/null || true
-docker compose up -d
+docker-compose pull >/dev/null || true
+docker-compose down >/dev/null || true
+docker-compose up -d
 echo -e "${GREEN}✅ Docker servisleri başlatıldı${NC}"
 
 # Staging sertifika bekle (90 sn)
@@ -240,8 +230,8 @@ done
 echo -e "${BOLD}${BLUE}🔒 PRODUCTION SSL SERTİFİKASI ALINIYOR...${NC}"
 echo -e "${YELLOW}Production CA'ya geçiliyor...${NC}"
 sed -i 's#acme-staging-v02.api.letsencrypt.org/directory#acme-v02.api.letsencrypt.org/directory#g' /opt/n8n/caddy/Caddyfile
-docker compose down >/dev/null || true
-docker compose up -d
+docker-compose down >/dev/null || true
+docker-compose up -d
 
 # Production sertifika bekle (120 sn)
 echo -e "${YELLOW}🔒 Production sertifika bekleniyor...${NC}"
