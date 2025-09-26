@@ -36,7 +36,7 @@ echo ""
 
 ### ====== OTOMATİK DEĞERLER ======
 echo -e "${BOLD}${BLUE}🔧 SİSTEM BİLGİLERİ ALINIYOR...${NC}"
-SERVER_IP="$(curl -fsS http://ipv4.icanhazip.com || hostname -I | awk '{print $1}')"
+SERVER_IP="$(hostname -I | awk '{print $1}')"
 RAND="$(tr -dc 'a-z0-9' </dev/urandom | head -c 12)"
 SUBDOMAIN="n8n-${RAND}"
 FQDN="${SUBDOMAIN}.${DOMAIN}"
