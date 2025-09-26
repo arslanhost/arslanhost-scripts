@@ -158,10 +158,10 @@ echo -e "${GREEN}✅ Docker Compose dosyası oluşturuldu${NC}"
 echo -e "${YELLOW}🌐 Caddy reverse proxy yapılandırması...${NC}"
 cat > /opt/n8n/caddy/Caddyfile <<'CADDY'
 {
-  email {env.ADMIN_EMAIL}
+  email ${ADMIN_EMAIL}
 }
 
-{$BASE_DOMAIN} {
+${BASE_DOMAIN} {
   # İlk etapta staging CA; script ileride production'a alacak
   acme_ca https://acme-staging-v02.api.letsencrypt.org/directory
 
